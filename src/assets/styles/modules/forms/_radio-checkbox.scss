@@ -1,0 +1,170 @@
+////
+/// Radio Buttons & Checkboxes
+/// @group Component - Radio Buttons & Checkboxes
+/// @author MS
+////
+
+///
+$rc-width: torem(16px) !default;
+///
+$rc-height: torem(16px) !default;
+///
+$rc-font-size: torem(12px) !default;
+///
+$rc-label-color: #000 !default;
+///
+$rc-marker-color: #fff !default;
+///
+$rc-background-color: #fff !default;
+///
+$rc-radio-marker: '\25CF' !default; // Unicode for '●'
+///
+$rc-checkbox-marker: '\2713' !default; // Unicode for '✔'
+///
+$rc-checkbox-border-radius: 2px !default;
+
+
+/// Radio Buttons & Checkboxes
+/// Mixin that styles Radio buttons and
+/// Checkboxes with CSS only.
+/// @example
+///   [type="checkbox"],
+///   [type="radio"]{
+///     @include do-radio-checkbox('{type}', {label-color}, {marker-color}, {background-color});
+///   }
+@mixin do-radio-checkbox($type, $label-color, $marker-color, $background-color) {
+  // Default styles
+  &:checked,
+  &:not(:checked) {
+    position: absolute;
+    left: -9999px;
+
+     + label {
+      position: relative;
+
+      margin-right: 0;
+      margin-bottom: 0;
+
+      cursor: pointer;
+
+      padding-left: $rc-width + torem(14px);
+
+      width: 100%;
+
+      text-align: left;
+
+      line-height: 1.1;
+      color: $label-color;
+
+      font-size: toem(16px);
+      font-weight: 400;
+
+      // Not :checked state
+      &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        transition: all $msuxf-transition-duration $msuxf-transition-timing;
+
+        border: 1px solid $msuxf-color-quinary;
+
+        background-color: transparent;
+
+        width: $rc-width;
+
+        height: $rc-height;
+
+        content: '';
+
+        @if $type == 'checkbox' {
+          border-radius: $rc-checkbox-border-radius;
+        }
+
+        @if $type == 'radio' {
+          border-radius: toem(9999px);
+        }
+      }
+
+      // :checked state
+      &:after {
+        position: absolute;
+        left: 0;
+
+        transition: transform #{$msuxf-transition-duration / 2} $msuxf-transition-timing;
+
+        width: $rc-width;
+
+        text-align: center;
+
+        color: $marker-color;
+
+        font-size: $rc-font-size;
+        font-weight: 700;
+
+        @if $type == 'radio' {
+          content: $rc-radio-marker;
+        }
+        @else if $type == 'checkbox' {
+          vertical-align: middle;
+
+          line-height: 1.75;
+
+          content: $rc-checkbox-marker;
+        }
+      }
+    }
+  }
+
+  // Marker transition on :checked
+  &:not(:checked) {
+     + label {
+      &:after {
+        transform: scale(0);
+
+        opacity: 0;
+      }
+      &:before {
+        border-color: $msuxf-color-secondary;
+
+        background-color: $background-color;
+      }
+    }
+  }
+
+  &:checked {
+     + label {
+      &:after {
+        transform: scale(1);
+
+        opacity: 1;
+      }
+      &:before {
+        border-color: $msuxf-color-tertiary;
+
+        background-color: $msuxf-color-tertiary;
+      }
+    }
+  }
+
+  // :disabled state
+  &:disabled {
+    &:checked,
+    &:not(:checked) {
+       + label {
+        opacity: 0.25;
+      }
+    }
+  }
+
+  // :focus state
+  &:hover {
+     + label {
+      &:before {
+        border-color: shade($msuxf-color-secondary, 20%);
+
+        box-shadow: 0 0 4px rgba($msuxf-color-secondary, 0.3);
+      }
+    }
+  }
+}

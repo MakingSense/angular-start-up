@@ -1,0 +1,17 @@
+<header class="header">
+  <div class="wrapper wrapper--flex">
+    <div class="header__logo">
+      <img src="/assets/img/logo.svg">
+    </div>
+    <nav class="header__navigation">
+      <ul class="navigation navigation__container">
+        <li class="navigation__item" routerLinkActive="navigation__item--active"><a routerLink="/users">Users</a></li>
+        <li class="navigation__item"><a (click)="logout()">Logout</a></li>
+      </ul>
+      <div class="header__user-profile">
+        <a class="profile--name">{{session.email}}</a>
+      </div>
+    </nav>
+  </div>
+  <div class="header__spacer"></div>
+</header>

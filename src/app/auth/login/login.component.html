@@ -1,0 +1,29 @@
+<main role="main" class="login--main">
+  <section class="block login">
+    <div class="wrapper">
+      <h2>Login</h2>
+      <form [formGroup]="loginForm" class="form__container" (submit)="login()" novalidate>
+        <div class="form__container__input ">
+          <div class="input__container">
+            <label>
+              Email:
+              <input formControlName="email" id="email" type="email" placeholder="Please enter your email...">
+              <div class="validation validation--error" *ngIf="submitted && loginForm.get('email').errors && loginForm.get('email').errors['required'] "><p>Email is required</p></div>
+              <div class="validation validation--error" *ngIf="submitted && loginForm.get('email').errors && !loginForm.get('email').errors['required'] && loginForm.get('email').errors['email']"><p>Invalid format</p></div>
+            </label>
+          </div>
+        </div>
+        <div class="form__container__input">
+          <div class="input__container">
+            <label>
+              Password:
+              <input formControlName="password" id="password" type="password" placeholder="Please enter your password...">
+              <div class="validation validation--error" *ngIf="submitted && loginForm.get('password').errors"><p>Password is required</p></div>
+            </label>
+          </div>
+        </div>
+        <button class="button">Login</button>
+      </form>
+    </div>
+  </section>
+</main>

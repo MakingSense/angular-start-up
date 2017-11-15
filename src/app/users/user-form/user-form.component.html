@@ -1,0 +1,59 @@
+<main role="main">
+  <section class="block">
+    <div class="wrapper">
+      <header class="block__header">
+        <h2>Create User</h2>
+      </header>
+      <form class="form__container" novalidate [formGroup]="userForm" (submit)="onSubmit()">
+        <div class="form__container__input form__container__input--2">
+          <div class="input__container">
+            <label>
+              First Name
+              <input type="text" formControlName="firstName">
+              <div class="validation validation--error" *ngIf="submitted && userForm.get('firstName').invalid"><p>First Name is required</p></div>
+            </label>
+          </div>
+          <div class="input__container">
+            <label>
+              Last Name
+              <input type="text" formControlName="lastName">
+              <div class="validation validation--error" *ngIf="submitted && userForm.get('lastName').invalid"><p>Last Name is required</p></div>
+            </label>
+          </div>
+        </div>
+        <div class="form__container__input form__container__input--2">
+          <div class="input__container">
+            <label>
+              Email
+              <input type="email" formControlName="email">
+              <div class="validation validation--error" *ngIf="submitted && userForm.get('email').invalid && userForm.get('email').errors['required']"><p>Email is required</p></div>
+              <div class="validation validation--error" *ngIf="submitted && userForm.get('email').invalid && !userForm.get('email').errors['required'] && !userForm.get('email').errors['format']"><p>Invalid Format</p></div>
+            </label>
+          </div>
+          <div class="input__container">
+            <label>
+              Role
+              <select formControlName="role">
+                <option value="">Select a Role</option>
+                <option value="1">Client</option>
+                <option value="2">Admin</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <div class="form__container__input form__container__input--2">
+          <div class="input__container">
+            <label>
+              Password
+              <input type="password" formControlName="password">
+            </label>
+          </div>
+        </div>
+        <div class="button__container">
+          <button class="button button--large" (click)="cancel()">Cancel</button>
+          <button class="button button--large">Save</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,71 @@
+////
+/// Settings File
+/// Init fonts, backgrounds, wrappers, breakpoints and Transition variables
+/// @group Settings
+////
+
+/// Colors ///
+///
+$msuxf-color-primary: #f6f6f6;
+$msuxf-color-secondary: #d8d8d8;
+$msuxf-color-tertiary: #5cb85c;
+$msuxf-color-quaternary: #f0ad4e;
+$msuxf-color-quinary: #d3534c;
+$msuxf-color-senary: #1976d2;
+$msuxf-color-septenary: #777;
+$msuxf-color-octanary: #ccc;
+$msuxf-color-white: #fff;
+$msuxf-color-black: #222;
+
+/// Fonts ///
+///
+$msuxf-font-size: 16px !default;
+///
+$msuxf-font-weight: 400 !default;
+///
+$msuxf-font-family: 'ProximaNova', Helvetica, Arial, sans-serif !default;
+///
+$msuxf-font: $msuxf-font-weight toem($msuxf-font-size) $msuxf-font-family !default;
+///
+$msuxf-font-weight-light: 300 !default;
+///
+$msuxf-font-weight-regular: $msuxf-font-weight !default;
+///
+$msuxf-font-weight-semibold: 600 !default;
+///
+$msuxf-font-weight-bold: 700 !default;
+///
+$msuxf-font-color: #222 !default;
+///
+$msuxf-font-color-bright: $msuxf-color-primary !default;
+///
+$msuxf-font-color-dark: $msuxf-font-color !default;
+///
+$msuxf-font-color-white: #fff !default;
+
+/// Background ///
+///
+$msuxf-background: $msuxf-font-color-bright !default;
+///
+$msuxf-background-bright: $msuxf-color-primary !default;
+
+/// Wrapper ///
+///
+$msuxf-wrapper-min-width: torem(1200px) !default;
+
+/// Breakpoints ///
+///
+$msuxf-breakpoints: (
+  'desktop-fhd': (max-width: 1920px),
+  'desktop': (max-width: 1366px),
+  'ipad': (min-width: 1023px, max-width: 1024px),
+  'isdesktop': (min-width: 1024px),
+  'ismobile': (max-width: 1024px),
+  'iphone': (max-width: 980px)
+) !default;
+
+/// Transition/Animation ///
+///
+$msuxf-transition-duration: 0.25s !default;
+///
+$msuxf-transition-timing: ease !default;

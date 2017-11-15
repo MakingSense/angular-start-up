@@ -1,0 +1,80 @@
+////
+/// Buttons
+/// @group components
+/// @author MS
+////
+
+///
+$c-button-padding: toem(13.55px) toem(30.5px) !default;
+$c-button-padding-big: torem(15px) torem(55px) !default;
+///
+$c-button-text-color: $msuxf-color-white !default;
+///
+$c-button-background-color: $msuxf-color-senary !default;
+///
+$c-button-border-radius: toem(3px) !default;
+///
+$c-button-border-color: $msuxf-color-senary;
+
+/// General styles for buttons. There are also a couple of modifier classes to handle smaller and bigger styles for the buttons.
+/// @example markup - Regular size buttons
+///   <button class="button"></button>
+/// @example markup - Small size buttons
+///   <button class="button button--small"></button>
+/// @example markup - Large size buttons
+///   <button class="button button--large"></button>
+
+@mixin c-button() {
+  .button {
+    display: inline-block;
+
+    transition: all $msuxf-transition-duration $msuxf-transition-timing;
+
+    border: 1px solid $c-button-border-color;
+
+    box-shadow: 0 1px 2px 1px rgba(#c3c3c3, 0.5);
+
+    background-color: $c-button-background-color;
+
+    padding: $c-button-padding;
+
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    line-height: 1; // Normalize height
+    color: $c-button-text-color;
+
+    font-size: toem(13px);
+
+    appearance: none;
+
+    @if variable-exists(c-button-border-radius) and $c-button-border-radius != 0 {
+      border-radius: $c-button-border-radius;
+    }
+
+    &:hover {
+      background-color: shade($c-button-background-color, 20%);
+
+      color: $c-button-text-color;
+    }
+
+    &.button--disabled,
+    &.button:disabled,
+    &.button[disabled] {
+      border: 1px solid $msuxf-color-octanary;
+
+      background: $msuxf-color-octanary;
+
+      cursor: not-allowed;
+    }
+
+    &.button--small {
+      font-size: 80%;
+    }
+
+    &.button--large {
+      padding: $c-button-padding-big;
+    }
+  }
+}

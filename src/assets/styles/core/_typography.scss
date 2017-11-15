@@ -1,0 +1,80 @@
+////
+/// Typography
+/// Init typography basic settings
+/// @group Typography
+////
+
+@import './settings';
+
+///
+$msuxf-headers-h1-font-size: toem(46px);
+///
+$msuxf-headers-h2-font-size: toem(30px);
+///
+$msuxf-headers-h3-font-size: toem(24px);
+///
+$msuxf-headers-h4-font-size: toem(22px);
+///
+$msuxf-headers-h5-font-size: toem(18px);
+///
+$msuxf-headers-h6-font-size: toem(16px);
+
+html,
+button {
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $msuxf-font-color;
+
+  font: $msuxf-font;
+  font-weight: 400;
+}
+
+h1 {
+  margin: 0;
+
+  text-transform: uppercase;
+
+  line-height: 1.2;
+
+  font-size: $msuxf-headers-h1-font-size;
+  font-weight: $msuxf-font-weight-bold;
+}
+
+h2 {
+  margin: 0;
+
+  line-height: 1;
+
+  font-size: $msuxf-headers-h2-font-size;
+}
+
+h3 {
+  margin: 0;
+
+  line-height: 1;
+
+  font-size: $msuxf-headers-h3-font-size;
+}
+
+h4 {
+  font-size: $msuxf-headers-h4-font-size;
+}
+
+h5 {
+  font-size: $msuxf-headers-h5-font-size;
+}
+
+h6 {
+  font-size: $msuxf-headers-h6-font-size;
+}
+
+strong {
+  font-weight: $msuxf-font-weight-bold;
+}

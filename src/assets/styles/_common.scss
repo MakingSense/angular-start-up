@@ -1,0 +1,113 @@
+@include c-button();
+@include c-table();
+@include c-rating(toem(20px), span, representative);
+
+.wrapper {
+  @include center($msuxf-wrapper-min-width, torem(16px));
+  &.wrapper--full {
+    @include center(100%, torem(16px));
+  }
+  &.wrapper--flex {
+    @include display-flex();
+    &:after,
+    &:before {
+      content: initial;
+    }
+    &.wrapper--flex-nowrap {
+      flex-wrap: nowrap;
+    }
+  }
+}
+
+main {
+  padding: torem(55px) 0 torem(75px) 0;
+
+  min-height: 50vh;
+  &.login--main {
+    display: flex;
+
+    align-items: center;
+
+    height: calc(100vh - 71px);
+  }
+}
+
+.block {
+  .wrapper--flex {
+    align-items: flex-start;
+  }
+  &__header {
+    @include display-flex();
+
+    margin-bottom: torem(35px);
+
+    border-bottom: 1px solid $msuxf-color-secondary;
+
+    padding-bottom: torem(15px);
+    &--no--border {
+      border-color: transparent;
+    }
+    &--secondary {
+      margin-bottom: torem(20px);
+    }
+  }
+  &__content {
+    @include display-flex();
+  }
+  &--half {
+    @include half-block();
+  }
+  &__search {
+    margin-bottom: torem(35px);
+    input {
+      width: 100%;
+    }
+  }
+}
+
+.filter {
+  @include display-flex();
+
+  align-items: flex-start;
+
+  flex-wrap: nowrap;
+  &__input {
+    &:last-of-type {
+      margin-right: torem(20px);
+
+      border-right: 1px solid $msuxf-color-secondary;
+    }
+  }
+
+  input {
+    margin-right: torem(20px);
+
+    padding-top: torem(11px);
+    padding-bottom: torem(11px);
+  }
+
+  a.button + a.button {
+    margin-left: torem(15px);
+  }
+}
+
+.item--link {
+  color: $msuxf-color-senary;
+
+  cursor: pointer;
+
+  font-weight: 400;
+  &:hover {
+    color: shade($msuxf-color-senary, 20%);
+  }
+}
+
+.description {
+  display: block;
+
+  margin-bottom: torem(15px);
+
+  color: $msuxf-color-septenary;
+
+  font-size: toem(15px);
+}

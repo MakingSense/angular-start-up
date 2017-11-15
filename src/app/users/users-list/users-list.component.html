@@ -1,0 +1,32 @@
+<main role="main">
+  <div class="wrapper">
+    <header class="block__header block__header--navigation">
+      <h2>Users</h2>
+      <div class="filter">
+        <a routerLink="/users/create" class="button">Create User</a>
+      </div>
+    </header>
+    <div class="block__content">
+      <table class="c-table">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody class="table__content">
+          <tr *ngFor="let user of users | async">
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.role == 1 ? 'Client' : 'Admin'}}</td>
+            <td><a class="item--link" (click)="deleteUser(user.id)">Delete</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>

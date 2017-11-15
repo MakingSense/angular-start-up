@@ -1,0 +1,42 @@
+////
+/// Dashboard
+/// @group Dashboard
+/// @author MS
+////
+
+.dashboard {
+  &__chart-container,
+  &__chart-information {
+    padding: torem(15px);
+
+    width: 50%;
+
+    text-align: center;
+  }
+  &__chart-container {
+    border-right: 1px solid $msuxf-color-secondary;
+
+    width: 50%;
+  }
+  &__chart-information {
+    h3 {
+      line-height: 1.2;
+
+      font-size: toem(80px);
+      font-weight: 600;
+    }
+    span {
+      line-height: 1.2;
+
+      font-size: toem(20px);
+      font-weight: 400;
+    }
+  }
+  .block__content {
+    margin-bottom: torem(40px);
+
+    border-bottom: 1px solid $msuxf-color-secondary;
+
+    padding-bottom: torem(35px);
+  }
+}
